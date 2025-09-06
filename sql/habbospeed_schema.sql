@@ -130,3 +130,25 @@ VALUES ('Kusito', 'Electro Latino', 12);
 -- Datos de ejemplo para mantenimiento
 INSERT INTO mantenimiento (activo, mensaje)
 VALUES (FALSE, 'Estamos ajustando los cables y calibrando los beats. Vuelve pronto 🎶');
+
+-- Tabla de insignias
+CREATE TABLE insignias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  descripcion TEXT,
+  icono VARCHAR(100),
+  tipo ENUM('dj', 'oyente')
+);
+
+-- Relación usuarios ↔ insignias
+CREATE TABLE usuario_insignia (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT,
+  insignia_id INT,
+  fecha_asignacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+  FOREIGN KEY (insignia_id) REFERENCES insignias(id)
+);
+
+-- Añadir campo de caracolas a usuarios
+ALTER TABLE usuarios ADD caracolas INT DEFAULT 0;
