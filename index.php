@@ -1,5 +1,5 @@
 <?php
-if (file_exists('.maintenance')) {
+if (file_exists('.production')) {
   include 'mantenimiento.php';
   exit();
 }
