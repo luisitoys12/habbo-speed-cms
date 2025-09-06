@@ -56,8 +56,8 @@ Contacto: [kusito@estacionkusmedios.org](mailto:kusito@estacionkusmedios.org)
 ## 🌐 Enlaces
 
 - [Estacionkusmedios.org](https://estacionkusmedios.org)  
-- [Fundación Ohana Instituto Irapuato](https://ohana.irapuato.org)  
-- [Habbospeed Fansite Radio](https://habbospeed.org)
+- [Estacionkusfm](https://estacionkusfm.net)  
+- [Habbospeed Fansite Radio](#pronto)
 
 ---
 
