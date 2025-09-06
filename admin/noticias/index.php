@@ -15,6 +15,7 @@ $result = $conn->query("SELECT * FROM noticias ORDER BY fecha DESC");
       <td>
         <a href="editar.php?id=<?php echo $n['id']; ?>">✏️</a>
         <a href="eliminar.php?id=<?php echo $n['id']; ?>">🗑️</a>
+        <a href="exportar.php">📤 Exportar CSV</a>
       </td>
     </tr>
   <?php endwhile; ?>
