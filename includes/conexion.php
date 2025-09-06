@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";         // Cambia si tu servidor es diferente
-$usuario = "root";           // Tu usuario de base de datos
-$contrasena = "";            // Tu contraseña de base de datos
-$base_datos = "kusito_cms";  // Nombre de tu base de datos
+$usuario = "phdcpjffyn";           // Tu usuario de base de datos
+$contrasena = "x5c78bvHZG";            // Tu contraseña de base de datos
+$base_datos = "phdcpjffyn";  // Nombre de tu base de datos
 
 $conn = new mysqli($host, $usuario, $contrasena, $base_datos);
 
