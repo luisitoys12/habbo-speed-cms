@@ -152,3 +152,24 @@ CREATE TABLE usuario_insignia (
 
 -- Añadir campo de caracolas a usuarios
 ALTER TABLE usuarios ADD caracolas INT DEFAULT 0;
+
+CREATE TABLE insignias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  descripcion TEXT,
+  icono VARCHAR(100),
+  tipo ENUM('dj', 'oyente')
+);
+
+CREATE TABLE usuario_insignia (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT,
+  insignia_id INT,
+  fecha_asignacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+  FOREIGN KEY (insignia_id) REFERENCES insignias(id)
+);
+
+ALTER TABLE usuarios ADD caracolas INT DEFAULT 0;
+ALTER TABLE usuarios ADD tipo ENUM('personal', 'invitado', 'oyente') DEFAULT 'oyente';
+
