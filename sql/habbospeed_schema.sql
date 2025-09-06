@@ -18,3 +18,8 @@ CREATE TABLE djs (
   habbo_user VARCHAR(255),
   horario VARCHAR(255)
 );
+CREATE TABLE slides (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  archivo VARCHAR(255),
+  fecha_subida DATE
+);
