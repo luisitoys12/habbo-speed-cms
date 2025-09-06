@@ -1,6 +1,6 @@
 <?php
 if (file_exists('.index')) {
-  include 'mantenimiento.php';
+  include('maintenance.php');
   exit();
 }
 
