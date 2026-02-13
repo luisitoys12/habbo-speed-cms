@@ -1,64 +1,54 @@
-# Habbospeed CMS 🎛️🎧  
-Sistema modular para fansites de radio digital, creado por Estacionkus.
+# Habbospeed CMS 🎛️🎧
 
-Habbospeed es un CMS diseñado para radios juveniles y comunidades Habbo, con enfoque en personalización, visuales atractivos, y administración transparente. Incluye módulos para DJs, eventos, noticias, slides, estadísticas, y más.
+CMS modular para fansites/radios Habbo con portada pública, panel administrativo y módulos de contenido.
 
----
+## ✅ Estado actual del proyecto
 
-## 🚀 Características principales
+Esta versión corrige errores críticos de ejecución y deja el CMS funcional incluso si todavía no se configuró MySQL:
 
-- 🎤 **DJs personalizados** con perfiles, horarios, estilos y frases únicas.
-- 📅 **Agenda de programación** por fecha y hora.
-- 📰 **Noticias** con autor, imagen y estado activo.
-- 🎉 **Eventos** con banners, fechas y descripción.
-- 🖼️ **Slides** para carrusel visual en la portada.
-- 📊 **Dashboard** con estadísticas y logs de actividad.
-- 👥 **Usuarios** con roles (admin, editor, DJ) y acceso seguro.
-- 📻 **Estado de la radio** en tiempo real.
-- 🚧 **Modo mantenimiento** con mensaje personalizado.
-- 📁 **Panel administrativo** con CRUD, exportación y diseño responsivo.
+- Portada operativa sin includes rotos.
+- Integración de radio robusta con fallback si falla API.
+- Módulos públicos (radio, noticias, eventos) con tolerancia a falla de DB.
+- Dashboard admin sin fatal error cuando no hay conexión.
+- Slides sin assets binarios en Git (solo HTML/CSS).
 
----
+## Requisitos
 
-## 🛠️ Requisitos
+- PHP 8.1+
+- MySQL 5.7+ o MariaDB 10+
 
-- Servidor con PHP 7.4+
-- MySQL 5.7+
-- Navegador moderno (Chrome, Firefox, Edge)
-- Acceso a carpeta `/sql/` para importar `habbospeed_schema.sql`
+## Configuración rápida
 
----
+1. Importa el esquema SQL desde `sql/`.
+2. Define variables de entorno para DB:
 
-## ⚙️ Instalación
+```bash
+export DB_HOST=127.0.0.1
+export DB_PORT=3306
+export DB_NAME=habbospeed
+export DB_USER=root
+export DB_PASSWORD=secret
+```
 
-1. Clona el repositorio o descarga los archivos.
-2. Importa el archivo `sql/habbospeed_schema.sql` en tu base de datos.
-3. Configura tu conexión en `config/db.php`.
-4. Accede al panel desde `/admin/` con usuario creado en la tabla `usuarios`.
+3. (Opcional) URL de AzuraCast:
 
----
+```bash
+export AZURACAST_URL=https://tu-azuracast.com
+```
 
-## 📜 Licencia
+## Ejecutar en local
 
-Este proyecto se distribuye bajo la **Licencia Habbospeed v1.0**, inspirada en GNU GPL pero con restricciones de uso comercial y publicación del código completo.  
-Consulta el archivo `LICENSE.txt` para más detalles.
+```bash
+php -S 0.0.0.0:8080 -t .
+```
 
----
+- Home: `http://localhost:8080/`
+- Admin login: `http://localhost:8080/admin/login.php`
 
-## 💌 Créditos
+## Validación recomendada
 
-Creado con beats, bits y mucho cariño por **Estacionkus**  
-Mascota oficial: **Kusito** 🌟  
-Contacto: [kusito@estacionkusmedios.org](mailto:kusito@estacionkusmedios.org)
-
----
-
-## 🌐 Enlaces
-
-- [Estacionkusmedios.org](https://estacionkusmedios.org)  
-- [Estacionkusfm](https://estacionkusfm.net)  
-- [Habbospeed Fansite Radio](#pronto)
-
----
-
-¡Sintoniza, colabora y construye tu estación digital con estilo! 📡💜
+```bash
+find . -name '*.php' -print0 | xargs -0 -n1 php -l
+curl -I http://localhost:8080/
+curl -I http://localhost:8080/admin/login.php
+```
